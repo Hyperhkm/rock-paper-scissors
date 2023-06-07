@@ -8,49 +8,34 @@ function game(){
     for (let playerCount = 0, computerCount = 0; playerCount < 5 && computerCount < 5;){  
         const computerSelection = getComputerChoice(shapeSelection);
         function playround (playerSelection, computerSelection) {  
-            playerSelection = prompt ("Rock, Paper, Scissors: Choose your Weapon", );
-            playerSelection = playerSelection.toLowerCase();
-            computerSelection = computerSelection.toLowerCase();
+            playerSelection = prompt ("Rock, Paper, Scissor: Choose your Weapon", ).toLowerCase();
+            console.log ("Your score: " + playerCount + " Computer score: " + computerCount);
             if (playerSelection == computerSelection) {
                 return "Draw";
             }
-            else if (playerSelection == 'paper') {
-                if (computerSelection == 'rock'){
-                    playerCount++;
-                    return "Paper beats rock, you Won"+'\n'+(' Your Score: ' + playerCount)+(' Computer Score: ' + computerCount);
-                }
-                else {
-                    computerCount++;
-                    return 'You Lose'+'\n'+(' Your Score: ' + playerCount)+(' Computer Score: ' + computerCount);
-                }
+            else if (playerSelection == 'paper' && computerSelection == 'rock') {
+                playerCount++;
+                return "Paper beats rock, you Won";
             }
-            else if (playerSelection == 'scissors'){
-                if (computerSelection == 'paper'){
-                    playerCount++;
-                    return "Scissor beats paper, you Won"+'\n'+(' Your Score: ' + playerCount)+(' Computer Score: ' + computerCount);
-                }
-                else {
-                    computerCount++;
-                    return 'You Lose'+'\n'+(' Your Score: ' + playerCount)+(' Computer Score: ' + computerCount);
-                }
+            else if (playerSelection == 'scissors' && computerSelection == 'paper') {
+                playerCount++;
+                return "Scissor beats paper, you Won";
             }
-            else if (playerSelection == 'rock') {
-                if (computerSelection == 'scissor'){
-                    playerCount++;
-                    return "Rock beats scissor, you Won"+'\n'+(' Your Score: ' + playerCount)+(' Computer Score: ' + computerCount);
-                }
-                else {
-                    computerCount++;
-                    return 'You Lose'+'\n'+(' Your Score: ' + playerCount)+(' Computer Score: ' + computerCount);
-                }
+            else if (playerSelection == 'rock' && computerSelection == 'scissor') {
+                playerCount++;
+                return "Rock beats scissor, you Won";
             }
             else {
-                alert ('Incorret answer');
+                if (playerSelection == 'rock' || playerSelection == 'paper' || playerSelection == 'scissor') {
+                    computerCount++
+                    return console.log ('You lost'); 
+                }
+                else {
+                    return alert ("Incorrect, type again");
+                }    
             }
         }    
         console.log (playround(playerSelection, computerSelection));
-    }    
+    } 
 }
 console.log (game());
-
-
